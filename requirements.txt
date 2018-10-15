@@ -1,0 +1,9 @@
+django==1.11
+django-allauth==0.36.0
+psycopg2==2.7.4
+pytz>dev
+billiard>=3.5.0.2,<3.6.0
+kombu==4.2.1
+ipdb==0.11
+redis>=2.10.5
+celery==4.2.1

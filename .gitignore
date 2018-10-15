@@ -1,0 +1,48 @@
+# ignore intellij IDE things
+.idea/
+
+i# ignore vsCode things
+settings.json
+
+# OsX DS_Store nonsense
+.DS_Store
+
+# local config files
+*secret.py
+
+# ignore various Python things
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+*.mo
+*.pot
+*.log
+docs/_build/
+.docs/build
+target/
+venv/
+
+# ignore Google Drive API secrets
+*secrets.json
+*secrets.py
+
+# vscode
+.vscode/

@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pylint = "*"
+"flake8" = "*"
+pylint-django = "*"
+django-allauth = "==0.36.0"
+"psycopg2" = "==2.7.4"
+pytz = ">dev"
+billiard = "<3.6.0,>=3.5.0.2"
+kombu = "==4.2.1"
+Django = "==1.11"
+ipdb = "==0.11"
+redis = ">=2.10.5"
+pydocstyle = "==1.1.1"
+cyanide = "*"
+flakeplus = "*"
+celery = "==4.2.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

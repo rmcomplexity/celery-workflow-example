@@ -1,0 +1,55 @@
+--- 
+version: "3"
+services:
+    redis:
+      image: redis:4.0
+      ports:
+        - 6379:6379
+
+    rabbitmq:
+      image: rabbitmq:3.6.10-management
+      volumes:
+        - celery_django_test_amqp:/var/lib/rabbitmq/mnesia
+      ports:
+        - 5672:5672
+        - 5673:5673
+        - 15673:15673
+        - 15672:15672
+      environment:
+        - RABBITMQ_DEFAULT_USER=user
+        - RABBITMQ_DEFAULT_PASS=pwd
+        - RABBITMQ_DEFAULT_VHOST=test
+
+    postgres:
+      image: postgres:10.3
+      volumes:
+          - celery_django_test_pg:/var/lib/postgresql/data
+      ports:
+        - 5432:5432
+      environment:
+        - POSTGRES_PASSWORD:pwd
+        - POSTGRES_USER=user
+        - POSTGRES_DB=db
+        - PGDATA=/var/lib/postgresql/data/django_test
+
+    django:
+      build:
+        context: ./../../.
+        dockerfile: conf/docker/Dockerfile
+      image: local/celery-example:python3.6
+      links:
+        - redis:redis
+        - rabbitmq:rabbitmq
+        - postgres:postgres
+      volumes:
+        - ./../../.:/srv/www/project
+      ports:
+        - 8000:8000
+      dns:
+        - 8.8.8.8
+        - 8.8.4.4
+      command: ./bin/entry-point.sh 
+
+volumes:
+  celery_django_test_amqp:
+  celery_django_test_pg:
