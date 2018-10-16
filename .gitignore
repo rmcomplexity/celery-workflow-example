@@ -7,9 +7,6 @@ settings.json
 # OsX DS_Store nonsense
 .DS_Store
 
-# local config files
-*secret.py
-
 # ignore various Python things
 __pycache__/
 *.py[cod]
